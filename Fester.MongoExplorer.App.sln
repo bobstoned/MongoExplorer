@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.App", "Fester.MongoExplorer.App.csproj", "{6259AD7F-63C9-4BFD-930B-7DB70D020ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin.MongoShell", "StandardPlugins\Fester.MongoExplorer.Plugin.MongoShell\Fester.MongoExplorer.Plugin.MongoShell.csproj", "{CDFCA422-D49E-4925-BF1C-5E56A38418CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin", "Fester.MongoExplorer.Plugin\Fester.MongoExplorer.Plugin.csproj", "{1114189E-530C-49A3-8A0B-263C34F78AD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Common", "Fester.MongoExplorer.Common\Fester.MongoExplorer.Common.csproj", "{5D65AB40-7596-46F0-BA7A-2B83055F08E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin.LiberatoDatabaseUpgrade", "StandardPlugins\Fester.MongoExplorer.Plugin.LiberatoDatabaseUpgrade\Fester.MongoExplorer.Plugin.LiberatoDatabaseUpgrade.csproj", "{E57F54A4-AE0D-49C1-8B94-219525D09F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin.MongoImaging", "StandardPlugins\Fester.MongoExplorer.Plugin.MongoImaging\Fester.MongoExplorer.Plugin.MongoImaging.csproj", "{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blithe.Client.Controls.ImageEditor", "..\ThirdParty\Blithe.Client.Controls.ImageEditor\Blithe.Client.Controls.ImageEditor.csproj", "{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blithe.Common.Imaging", "..\ThirdParty\Blithe.Common.Imaging\Blithe.Common.Imaging.csproj", "{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blithe.Common.Media", "..\ThirdParty\Blithe.Common.Media\Blithe.Common.Media.csproj", "{DCB69566-998E-47E1-89B2-26D2865E2600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin.MongoUniversity", "StandardPlugins\Fester.MongoExplorer.Plugin.MongoUniversity\Fester.MongoExplorer.Plugin.MongoUniversity.csproj", "{0353E1C1-7B7A-49BB-93A6-B80492534F13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6259AD7F-63C9-4BFD-930B-7DB70D020ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6259AD7F-63C9-4BFD-930B-7DB70D020ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6259AD7F-63C9-4BFD-930B-7DB70D020ACE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6259AD7F-63C9-4BFD-930B-7DB70D020ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6259AD7F-63C9-4BFD-930B-7DB70D020ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6259AD7F-63C9-4BFD-930B-7DB70D020ACE}.Release|x86.ActiveCfg = Release|Any CPU
+		{CDFCA422-D49E-4925-BF1C-5E56A38418CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFCA422-D49E-4925-BF1C-5E56A38418CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFCA422-D49E-4925-BF1C-5E56A38418CB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CDFCA422-D49E-4925-BF1C-5E56A38418CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFCA422-D49E-4925-BF1C-5E56A38418CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFCA422-D49E-4925-BF1C-5E56A38418CB}.Release|x86.ActiveCfg = Release|Any CPU
+		{1114189E-530C-49A3-8A0B-263C34F78AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1114189E-530C-49A3-8A0B-263C34F78AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1114189E-530C-49A3-8A0B-263C34F78AD6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1114189E-530C-49A3-8A0B-263C34F78AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1114189E-530C-49A3-8A0B-263C34F78AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1114189E-530C-49A3-8A0B-263C34F78AD6}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Release|x86.ActiveCfg = Release|Any CPU
+		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Release|x86.ActiveCfg = Release|Any CPU
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Debug|x86.ActiveCfg = Debug|x86
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Debug|x86.Build.0 = Debug|x86
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Release|x86.ActiveCfg = Release|x86
+		{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}.Release|x86.Build.0 = Release|x86
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Debug|x86.ActiveCfg = Debug|x86
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Debug|x86.Build.0 = Debug|x86
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Release|x86.ActiveCfg = Release|x86
+		{F0C52432-1D68-4FD4-9D3C-4EF63F0CF2D7}.Release|x86.Build.0 = Release|x86
+		{DCB69566-998E-47E1-89B2-26D2865E2600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB69566-998E-47E1-89B2-26D2865E2600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB69566-998E-47E1-89B2-26D2865E2600}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DCB69566-998E-47E1-89B2-26D2865E2600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB69566-998E-47E1-89B2-26D2865E2600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB69566-998E-47E1-89B2-26D2865E2600}.Release|x86.ActiveCfg = Release|Any CPU
+		{0353E1C1-7B7A-49BB-93A6-B80492534F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0353E1C1-7B7A-49BB-93A6-B80492534F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0353E1C1-7B7A-49BB-93A6-B80492534F13}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0353E1C1-7B7A-49BB-93A6-B80492534F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0353E1C1-7B7A-49BB-93A6-B80492534F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0353E1C1-7B7A-49BB-93A6-B80492534F13}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

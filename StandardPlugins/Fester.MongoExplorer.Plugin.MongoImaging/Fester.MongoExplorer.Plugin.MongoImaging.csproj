@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fester.MongoExplorer.Plugin.MongoImaging</RootNamespace>
+    <AssemblyName>Fester.MongoExplorer.Plugin.MongoImaging</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitMiracle.LibTiff.NET, Version=2.3.642.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dependencies\BitMiracle.LibTiff.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Blithe.Common.Media">
+      <HintPath>B:\Blithe.Common.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\packages\MongoDB.Driver.2.0.1\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Legacy">
+      <HintPath>..\..\packages\mongocsharpdriver.2.0.1\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="collections\ScriptTemplate.cs" />
+    <Compile Include="ImagingPluginControl.cs" />
+    <Compile Include="ImagingPluginControl.Designer.cs">
+      <DependentUpon>ImagingPluginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagingPlugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImagingPluginControl.resx">
+      <DependentUpon>ImagingPluginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ThirdParty\Blithe.Client.Controls.ImageEditor\Blithe.Client.Controls.ImageEditor.csproj">
+      <Project>{07c9b1c8-c47d-4cf6-9240-33cf4fd9c5a2}</Project>
+      <Name>Blithe.Client.Controls.ImageEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ThirdParty\Blithe.Common.Imaging\Blithe.Common.Imaging.csproj">
+      <Project>{f0c52432-1d68-4fd4-9d3c-4ef63f0cf2d7}</Project>
+      <Name>Blithe.Common.Imaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Fester.MongoExplorer.Common\Fester.MongoExplorer.Common.csproj">
+      <Project>{5d65ab40-7596-46f0-ba7a-2b83055f08e6}</Project>
+      <Name>Fester.MongoExplorer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Fester.MongoExplorer.Plugin\Fester.MongoExplorer.Plugin.csproj">
+      <Project>{1114189e-530c-49a3-8a0b-263c34f78ad6}</Project>
+      <Name>Fester.MongoExplorer.Plugin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dependencies\BitMiracle.LibTiff.NET.dll" />
+    <Content Include="dependencies\SciLexer.dll" />
+    <Content Include="dependencies\ScintillaNet.dll" />
+    <Content Include="dependencies\Svg.dll" />
+    <None Include="Resources\IMG_1053.JPG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(ProjectDir)\..\..\bin\debug\plugins
+copy $(ProjectDir)\dependencies $(ProjectDir)\..\..\bin\debug\plugins</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
