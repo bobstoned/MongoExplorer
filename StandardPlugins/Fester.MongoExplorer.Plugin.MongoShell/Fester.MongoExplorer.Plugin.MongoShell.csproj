@@ -54,7 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MongoShellPluginControl.cs" />
+    <Compile Include="MongoShellPluginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="MongoShellPluginControl.Designer.cs">
       <DependentUpon>MongoShellPluginControl.cs</DependentUpon>
     </Compile>

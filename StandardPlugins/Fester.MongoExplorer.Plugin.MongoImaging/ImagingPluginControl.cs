@@ -13,6 +13,7 @@ using Fester.MongoExplorer.Plugin;
 using Fester.MongoExplorer.Common;
 using IMAGE_EDIT = Blithe.Client.Controls.ImageEditor;
 using IMAGING = Blithe.Common.Imaging;
+using Fester.MongoExplorer.Plugin.MongoImaging.Collections;
 
 namespace Fester.MongoExplorer.Plugin.MongoImaging {
 	public partial class ImagingPluginControl : PluginControl {
@@ -51,6 +52,11 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 		private void saveButton_Click(object sender, EventArgs e) {
 			(this.Plugin as MongoImagingPlugin).Insert(
 				nameTextBox.Text, descriptionTextBox.Text, regionTextBox.Text);
+		}
+
+		private void getImagesButton_Click(object sender, EventArgs e) {
+			ImageDocActions imageActions = new ImageDocActions(this.Plugin.Explorer);
+			var images = imageActions.Get();
 		}
 
 

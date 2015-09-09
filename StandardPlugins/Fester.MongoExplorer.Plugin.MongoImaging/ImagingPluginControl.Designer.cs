@@ -25,19 +25,20 @@
 		private void InitializeComponent() {
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.regionTextBox = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.descriptionTextBox = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.nameTextBox = new System.Windows.Forms.TextBox();
+			this.labelName = new System.Windows.Forms.Label();
+			this.saveButton = new System.Windows.Forms.Button();
 			this.openFileButton = new System.Windows.Forms.Button();
 			this.getTemplatesButton = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
 			this.imageEditorFrame = new Blithe.Client.Controls.ImageEditor.ImageEditorFrame();
 			this.templateListBox = new System.Windows.Forms.ListBox();
 			this.fileDialog = new System.Windows.Forms.OpenFileDialog();
-			this.saveButton = new System.Windows.Forms.Button();
-			this.labelName = new System.Windows.Forms.Label();
-			this.nameTextBox = new System.Windows.Forms.TextBox();
-			this.descriptionTextBox = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.regionTextBox = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.getImagesButton = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -53,6 +54,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.getImagesButton);
 			this.panel1.Controls.Add(this.regionTextBox);
 			this.panel1.Controls.Add(this.label4);
 			this.panel1.Controls.Add(this.descriptionTextBox);
@@ -69,6 +71,64 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(728, 204);
 			this.panel1.TabIndex = 7;
+			// 
+			// regionTextBox
+			// 
+			this.regionTextBox.Location = new System.Drawing.Point(413, 152);
+			this.regionTextBox.Name = "regionTextBox";
+			this.regionTextBox.Size = new System.Drawing.Size(271, 22);
+			this.regionTextBox.TabIndex = 18;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(325, 155);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(60, 17);
+			this.label4.TabIndex = 17;
+			this.label4.Text = "Regions";
+			// 
+			// descriptionTextBox
+			// 
+			this.descriptionTextBox.Location = new System.Drawing.Point(413, 124);
+			this.descriptionTextBox.Name = "descriptionTextBox";
+			this.descriptionTextBox.Size = new System.Drawing.Size(271, 22);
+			this.descriptionTextBox.TabIndex = 16;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(325, 127);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(79, 17);
+			this.label2.TabIndex = 15;
+			this.label2.Text = "Description";
+			// 
+			// nameTextBox
+			// 
+			this.nameTextBox.Location = new System.Drawing.Point(413, 94);
+			this.nameTextBox.Name = "nameTextBox";
+			this.nameTextBox.Size = new System.Drawing.Size(150, 22);
+			this.nameTextBox.TabIndex = 14;
+			// 
+			// labelName
+			// 
+			this.labelName.AutoSize = true;
+			this.labelName.Location = new System.Drawing.Point(325, 97);
+			this.labelName.Name = "labelName";
+			this.labelName.Size = new System.Drawing.Size(45, 17);
+			this.labelName.TabIndex = 13;
+			this.labelName.Text = "Name";
+			// 
+			// saveButton
+			// 
+			this.saveButton.Location = new System.Drawing.Point(569, 33);
+			this.saveButton.Name = "saveButton";
+			this.saveButton.Size = new System.Drawing.Size(115, 35);
+			this.saveButton.TabIndex = 12;
+			this.saveButton.Text = "Save";
+			this.saveButton.UseVisualStyleBackColor = true;
+			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
 			// 
 			// openFileButton
 			// 
@@ -125,63 +185,15 @@
 			// 
 			this.fileDialog.FileName = "openFileDialog1";
 			// 
-			// saveButton
+			// getImagesButton
 			// 
-			this.saveButton.Location = new System.Drawing.Point(569, 33);
-			this.saveButton.Name = "saveButton";
-			this.saveButton.Size = new System.Drawing.Size(115, 35);
-			this.saveButton.TabIndex = 12;
-			this.saveButton.Text = "Save";
-			this.saveButton.UseVisualStyleBackColor = true;
-			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-			// 
-			// labelName
-			// 
-			this.labelName.AutoSize = true;
-			this.labelName.Location = new System.Drawing.Point(325, 97);
-			this.labelName.Name = "labelName";
-			this.labelName.Size = new System.Drawing.Size(45, 17);
-			this.labelName.TabIndex = 13;
-			this.labelName.Text = "Name";
-			// 
-			// nameTextBox
-			// 
-			this.nameTextBox.Location = new System.Drawing.Point(413, 94);
-			this.nameTextBox.Name = "nameTextBox";
-			this.nameTextBox.Size = new System.Drawing.Size(150, 22);
-			this.nameTextBox.TabIndex = 14;
-			// 
-			// descriptionTextBox
-			// 
-			this.descriptionTextBox.Location = new System.Drawing.Point(413, 124);
-			this.descriptionTextBox.Name = "descriptionTextBox";
-			this.descriptionTextBox.Size = new System.Drawing.Size(271, 22);
-			this.descriptionTextBox.TabIndex = 16;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(325, 127);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(79, 17);
-			this.label2.TabIndex = 15;
-			this.label2.Text = "Description";
-			// 
-			// regionTextBox
-			// 
-			this.regionTextBox.Location = new System.Drawing.Point(413, 152);
-			this.regionTextBox.Name = "regionTextBox";
-			this.regionTextBox.Size = new System.Drawing.Size(271, 22);
-			this.regionTextBox.TabIndex = 18;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(325, 155);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(60, 17);
-			this.label4.TabIndex = 17;
-			this.label4.Text = "Regions";
+			this.getImagesButton.Location = new System.Drawing.Point(8, 88);
+			this.getImagesButton.Name = "getImagesButton";
+			this.getImagesButton.Size = new System.Drawing.Size(126, 35);
+			this.getImagesButton.TabIndex = 19;
+			this.getImagesButton.Text = "Get Images";
+			this.getImagesButton.UseVisualStyleBackColor = true;
+			this.getImagesButton.Click += new System.EventHandler(this.getImagesButton_Click);
 			// 
 			// ImagingPluginControl
 			// 
@@ -215,5 +227,6 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox nameTextBox;
 		private System.Windows.Forms.Label labelName;
+		private System.Windows.Forms.Button getImagesButton;
 	}
 }

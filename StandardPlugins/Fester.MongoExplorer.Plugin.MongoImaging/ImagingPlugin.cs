@@ -10,7 +10,7 @@ using Fester.MongoExplorer.Common;
 using Fester.MongoExplorer.Plugin;
 using System.ComponentModel.Composition;
 using IMAGING = Blithe.Common.Imaging;
-using MongoImaging.Collections;
+using Fester.MongoExplorer.Plugin.MongoImaging.Collections;
 
 namespace Fester.MongoExplorer.Plugin.MongoImaging {
 

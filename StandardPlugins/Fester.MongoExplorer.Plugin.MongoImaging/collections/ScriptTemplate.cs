@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MongoImaging.Collections {
+namespace Fester.MongoExplorer.Plugin.MongoImaging.Collections {
 
 	[BsonIgnoreExtraElements]
 	public class ScriptTemplate {

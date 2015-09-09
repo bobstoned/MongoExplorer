@@ -61,8 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="collections\ImageDoc.cs" />
+    <Compile Include="collections\ImageDocActions.cs" />
     <Compile Include="collections\ScriptTemplate.cs" />
-    <Compile Include="ImagingPluginControl.cs" />
+    <Compile Include="ImagingPluginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ImagingPluginControl.Designer.cs">
       <DependentUpon>ImagingPluginControl.cs</DependentUpon>
     </Compile>
@@ -112,6 +116,9 @@
     <Content Include="dependencies\SciLexer.dll" />
     <Content Include="dependencies\ScintillaNet.dll" />
     <Content Include="dependencies\Svg.dll" />
+    <Content Include="scripts\imageInts.js" />
+    <Content Include="scripts\imageSimple.js" />
+    <Content Include="scripts\image.js" />
     <None Include="Resources\IMG_1053.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
