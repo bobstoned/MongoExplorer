@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="CollectionActions.cs" />
     <Compile Include="ExplorerForm.cs">
       <SubType>Form</SubType>
@@ -78,6 +84,7 @@
     <Compile Include="dialogs\LoginDialog.Designer.cs">
       <DependentUpon>LoginDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="helper\Tools.cs" />
     <Compile Include="MongoExplorerExceptionType.cs" />
     <Compile Include="PluginHost.cs">
       <SubType>UserControl</SubType>
@@ -87,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExplorerForm.resx">
       <DependentUpon>ExplorerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,10 +135,15 @@
     <Folder Include="document\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\mongo explorer logo.png" />
     <Content Include="Images\MongoExplorer.png" />
     <Content Include="plugins\MongoUniversity.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ThirdParty\FlatTabs\FlatTabControl\FlatTabControl.csproj">
+      <Project>{96002ca1-d295-4ed5-9b08-92346c1bfa18}</Project>
+      <Name>FlatTabControl</Name>
+    </ProjectReference>
     <ProjectReference Include="Fester.MongoExplorer.Common\Fester.MongoExplorer.Common.csproj">
       <Project>{5d65ab40-7596-46f0-ba7a-2b83055f08e6}</Project>
       <Name>Fester.MongoExplorer.Common</Name>

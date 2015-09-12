@@ -18,7 +18,10 @@ namespace Fester.MongoExplorer.App {
 		public ExplorerForm() {
 			InitializeComponent();
 			CreatePlugins();
+			Tools.ApplyStyle(this, Color.Gray, Color.DarkGray, Color.LightSalmon, Color.DarkRed, Color.White);
 		}
+
+		List<Control> buttons = new List<Control>();
 
 		private MongoExplorerSession explorer = new MongoExplorerSession();
 
@@ -57,9 +60,9 @@ namespace Fester.MongoExplorer.App {
 				row.Add("scanDate", new BsonDateTime(DateTime.Now));
 				rows.Add(row);
 			}
-			List<BsonDocument> documents = actions.Create(importcolNameTextBox.Text, rows);
-			importView.AutoGenerateColumns = true;
-			importView.DataSource = explorer.GetDataTableFromBSONList("scans", documents);
+			//List<BsonDocument> documents = actions.Create(importcolNameTextBox.Text, rows);
+			//importView.AutoGenerateColumns = true;
+			//importView.DataSource = explorer.GetDataTableFromBSONList("scans", documents);
 		}
 
 		MongoPluginFactory pluginFactory = new MongoPluginFactory();
@@ -89,10 +92,49 @@ namespace Fester.MongoExplorer.App {
 				pluginHost.Plugin = plugins.FirstOrDefault(p => p.PluginName == pluginName);
 			}
 			pluginHost.Plugin.Explorer = this.explorer;
+			Tools.ApplyStyle(pluginHost, Color.Gray, Color.DarkGray, Color.LightSalmon, Color.DarkRed, Color.White);
+			Tools.SetPanelStyling(pluginHost, Color.DarkGray);
 		}
 
 		private void closeButton_Click(object sender, EventArgs e) {
 			this.Close();
+		}
+
+		private void aboutMenuItem_Click(object sender, EventArgs e) {
+			AboutDialog.ShowAboutDialog();
+		}
+
+		private void queryTabControl_DrawItem(object sender, DrawItemEventArgs e) {
+			ChangeTabColor(e);
+		}
+
+		private void ChangeTabColor(DrawItemEventArgs e) {
+			Font TabFont;
+			Brush BackBrush = new SolidBrush(Color.Green); //Set background color
+			Brush ForeBrush = new SolidBrush(Color.Yellow);//Set foreground color
+			if (e.Index == this.queryTabControl.SelectedIndex) {
+				TabFont = new Font(e.Font, FontStyle.Italic | FontStyle.Bold);
+			}
+			else {
+				TabFont = e.Font;
+			}
+			string TabName = this.queryTabControl.TabPages[e.Index].Text;
+			StringFormat sf = new StringFormat();
+			sf.Alignment = StringAlignment.Center;
+			e.Graphics.FillRectangle(BackBrush, e.Bounds);
+			Rectangle r = e.Bounds;
+			r = new Rectangle(r.X, r.Y + 3, r.Width, r.Height - 3);
+			e.Graphics.DrawString(TabName, TabFont, ForeBrush, r, sf);
+			//Dispose objects
+			sf.Dispose();
+			if (e.Index == this.queryTabControl.SelectedIndex) {
+				TabFont.Dispose();
+				BackBrush.Dispose();
+			}
+			else {
+				BackBrush.Dispose();
+				ForeBrush.Dispose();
+			}
 		}
 
 	}
