@@ -33,45 +33,40 @@
 			this.connectButton = new System.Windows.Forms.Button();
 			this.panel8 = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.mainMenu = new System.Windows.Forms.MenuStrip();
-			this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.collectionTabPage = new System.Windows.Forms.TabPage();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel6 = new System.Windows.Forms.Panel();
-			this.refreshButton = new System.Windows.Forms.Button();
-			this.collectionListBox = new System.Windows.Forms.ListBox();
-			this.panel3 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel4 = new System.Windows.Forms.Panel();
-			this.label3 = new System.Windows.Forms.Label();
-			this.documentCountTextBox = new System.Windows.Forms.TextBox();
-			this.panel5 = new System.Windows.Forms.Panel();
-			this.label4 = new System.Windows.Forms.Label();
-			this.collectionNameTextBox = new System.Windows.Forms.TextBox();
-			this.maxDocsUpDown = new System.Windows.Forms.NumericUpDown();
-			this.label7 = new System.Windows.Forms.Label();
+			this.collectionView = new System.Windows.Forms.DataGridView();
+			this.splitter1 = new System.Windows.Forms.Splitter();
 			this.panel7 = new System.Windows.Forms.Panel();
 			this.documentTextBox = new System.Windows.Forms.RichTextBox();
-			this.splitter1 = new System.Windows.Forms.Splitter();
-			this.collectionView = new System.Windows.Forms.DataGridView();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.label7 = new System.Windows.Forms.Label();
+			this.maxDocsUpDown = new System.Windows.Forms.NumericUpDown();
+			this.collectionNameTextBox = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.documentCountTextBox = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.collectionListBox = new System.Windows.Forms.ListBox();
+			this.panel6 = new System.Windows.Forms.Panel();
+			this.refreshButton = new System.Windows.Forms.Button();
 			this.queryTabControl = new FlatTabControl.FlatTabControl();
 			this.panel9 = new System.Windows.Forms.Panel();
 			this.pluginHost = new Fester.MongoExplorer.App.Plugin.PluginHost();
 			this.pluginsTabPage.SuspendLayout();
 			this.panel8.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			this.mainMenu.SuspendLayout();
 			this.collectionTabPage.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.panel6.SuspendLayout();
 			this.panel2.SuspendLayout();
-			this.panel4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.collectionView)).BeginInit();
+			this.panel7.SuspendLayout();
 			this.panel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.maxDocsUpDown)).BeginInit();
-			this.panel7.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.collectionView)).BeginInit();
+			this.panel4.SuspendLayout();
+			this.panel1.SuspendLayout();
+			this.panel6.SuspendLayout();
 			this.queryTabControl.SuspendLayout();
 			this.panel9.SuspendLayout();
 			this.SuspendLayout();
@@ -83,7 +78,7 @@
 			this.pluginsTabPage.Controls.Add(this.pluginListBox);
 			this.pluginsTabPage.Location = new System.Drawing.Point(4, 29);
 			this.pluginsTabPage.Name = "pluginsTabPage";
-			this.pluginsTabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.pluginsTabPage.Padding = new System.Windows.Forms.Padding(8, 8, 3, 3);
 			this.pluginsTabPage.Size = new System.Drawing.Size(895, 450);
 			this.pluginsTabPage.TabIndex = 4;
 			this.pluginsTabPage.Text = "Plugins";
@@ -95,9 +90,9 @@
 			this.pluginListBox.Dock = System.Windows.Forms.DockStyle.Left;
 			this.pluginListBox.FormattingEnabled = true;
 			this.pluginListBox.ItemHeight = 16;
-			this.pluginListBox.Location = new System.Drawing.Point(3, 3);
+			this.pluginListBox.Location = new System.Drawing.Point(8, 8);
 			this.pluginListBox.Name = "pluginListBox";
-			this.pluginListBox.Size = new System.Drawing.Size(275, 444);
+			this.pluginListBox.Size = new System.Drawing.Size(275, 439);
 			this.pluginListBox.TabIndex = 1;
 			this.pluginListBox.SelectedIndexChanged += new System.EventHandler(this.pluginListBox_SelectedIndexChanged);
 			// 
@@ -180,7 +175,6 @@
 			this.panel8.Controls.Add(this.databaseTextBox);
 			this.panel8.Controls.Add(this.serverTextBox);
 			this.panel8.Controls.Add(this.label2);
-			this.panel8.Controls.Add(this.mainMenu);
 			this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel8.Location = new System.Drawing.Point(8, 0);
 			this.panel8.Name = "panel8";
@@ -192,48 +186,12 @@
 			// 
 			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.pictureBox1.Image = global::Fester.MongoExplorer.App.Properties.Resources.mongo_explorer_logo;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 28);
+			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(135, 73);
+			this.pictureBox1.Size = new System.Drawing.Size(135, 101);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
-			// 
-			// mainMenu
-			// 
-			this.mainMenu.BackColor = System.Drawing.Color.Brown;
-			this.mainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-			this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenuItem,
-            this.helpMenuItem});
-			this.mainMenu.Location = new System.Drawing.Point(0, 0);
-			this.mainMenu.Name = "mainMenu";
-			this.mainMenu.Size = new System.Drawing.Size(903, 28);
-			this.mainMenu.TabIndex = 12;
-			this.mainMenu.Text = "menuStrip1";
-			// 
-			// fileMenuItem
-			// 
-			this.fileMenuItem.ForeColor = System.Drawing.Color.White;
-			this.fileMenuItem.Name = "fileMenuItem";
-			this.fileMenuItem.Size = new System.Drawing.Size(47, 24);
-			this.fileMenuItem.Text = "FILE";
-			// 
-			// helpMenuItem
-			// 
-			this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutMenuItem});
-			this.helpMenuItem.ForeColor = System.Drawing.Color.White;
-			this.helpMenuItem.Name = "helpMenuItem";
-			this.helpMenuItem.Size = new System.Drawing.Size(55, 24);
-			this.helpMenuItem.Text = "HELP";
-			// 
-			// aboutMenuItem
-			// 
-			this.aboutMenuItem.Name = "aboutMenuItem";
-			this.aboutMenuItem.Size = new System.Drawing.Size(117, 24);
-			this.aboutMenuItem.Text = "about";
-			this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
 			// 
 			// collectionTabPage
 			// 
@@ -247,62 +205,6 @@
 			this.collectionTabPage.Size = new System.Drawing.Size(895, 450);
 			this.collectionTabPage.TabIndex = 2;
 			this.collectionTabPage.Text = "Collections";
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.collectionListBox);
-			this.panel1.Controls.Add(this.panel6);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel1.Location = new System.Drawing.Point(6, 6);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(262, 438);
-			this.panel1.TabIndex = 5;
-			// 
-			// panel6
-			// 
-			this.panel6.BackColor = System.Drawing.Color.Transparent;
-			this.panel6.Controls.Add(this.refreshButton);
-			this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel6.Location = new System.Drawing.Point(0, 398);
-			this.panel6.Name = "panel6";
-			this.panel6.Size = new System.Drawing.Size(262, 40);
-			this.panel6.TabIndex = 11;
-			// 
-			// refreshButton
-			// 
-			this.refreshButton.BackColor = System.Drawing.Color.LightSalmon;
-			this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-			this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.refreshButton.Location = new System.Drawing.Point(0, 5);
-			this.refreshButton.Name = "refreshButton";
-			this.refreshButton.Size = new System.Drawing.Size(91, 31);
-			this.refreshButton.TabIndex = 10;
-			this.refreshButton.Text = "Refresh";
-			this.refreshButton.UseVisualStyleBackColor = false;
-			this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-			// 
-			// collectionListBox
-			// 
-			this.collectionListBox.BackColor = System.Drawing.Color.White;
-			this.collectionListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.collectionListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.collectionListBox.FormattingEnabled = true;
-			this.collectionListBox.IntegralHeight = false;
-			this.collectionListBox.ItemHeight = 16;
-			this.collectionListBox.Location = new System.Drawing.Point(0, 0);
-			this.collectionListBox.Name = "collectionListBox";
-			this.collectionListBox.Size = new System.Drawing.Size(262, 398);
-			this.collectionListBox.TabIndex = 2;
-			this.collectionListBox.SelectedIndexChanged += new System.EventHandler(this.collectionListBox_SelectedIndexChanged);
-			// 
-			// panel3
-			// 
-			this.panel3.BackColor = System.Drawing.Color.Transparent;
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel3.Location = new System.Drawing.Point(268, 6);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(10, 438);
-			this.panel3.TabIndex = 7;
 			// 
 			// panel2
 			// 
@@ -318,33 +220,46 @@
 			this.panel2.Size = new System.Drawing.Size(611, 438);
 			this.panel2.TabIndex = 6;
 			// 
-			// panel4
+			// collectionView
 			// 
-			this.panel4.BackColor = System.Drawing.Color.Transparent;
-			this.panel4.Controls.Add(this.documentCountTextBox);
-			this.panel4.Controls.Add(this.label3);
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel4.Location = new System.Drawing.Point(0, 398);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(611, 40);
-			this.panel4.TabIndex = 5;
+			this.collectionView.BackgroundColor = System.Drawing.Color.White;
+			this.collectionView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.collectionView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.collectionView.Location = new System.Drawing.Point(0, 43);
+			this.collectionView.Name = "collectionView";
+			this.collectionView.RowTemplate.Height = 24;
+			this.collectionView.Size = new System.Drawing.Size(611, 134);
+			this.collectionView.TabIndex = 4;
+			this.collectionView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.collectionView_CellClick);
 			// 
-			// label3
+			// splitter1
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(4, 12);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(113, 17);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Document Count";
+			this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.splitter1.Location = new System.Drawing.Point(0, 177);
+			this.splitter1.Name = "splitter1";
+			this.splitter1.Size = new System.Drawing.Size(611, 10);
+			this.splitter1.TabIndex = 8;
+			this.splitter1.TabStop = false;
 			// 
-			// documentCountTextBox
+			// panel7
 			// 
-			this.documentCountTextBox.Location = new System.Drawing.Point(123, 9);
-			this.documentCountTextBox.Name = "documentCountTextBox";
-			this.documentCountTextBox.ReadOnly = true;
-			this.documentCountTextBox.Size = new System.Drawing.Size(100, 22);
-			this.documentCountTextBox.TabIndex = 1;
+			this.panel7.Controls.Add(this.documentTextBox);
+			this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel7.Location = new System.Drawing.Point(0, 187);
+			this.panel7.Name = "panel7";
+			this.panel7.Size = new System.Drawing.Size(611, 211);
+			this.panel7.TabIndex = 7;
+			// 
+			// documentTextBox
+			// 
+			this.documentTextBox.BackColor = System.Drawing.Color.White;
+			this.documentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.documentTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.documentTextBox.Location = new System.Drawing.Point(0, 0);
+			this.documentTextBox.Name = "documentTextBox";
+			this.documentTextBox.Size = new System.Drawing.Size(611, 211);
+			this.documentTextBox.TabIndex = 4;
+			this.documentTextBox.Text = "function() { \nreturn db.images.count(); \n}";
 			// 
 			// panel5
 			// 
@@ -359,24 +274,14 @@
 			this.panel5.Size = new System.Drawing.Size(611, 43);
 			this.panel5.TabIndex = 6;
 			// 
-			// label4
+			// label7
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(3, 15);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(69, 17);
-			this.label4.TabIndex = 0;
-			this.label4.Text = "Collection";
-			// 
-			// collectionNameTextBox
-			// 
-			this.collectionNameTextBox.BackColor = System.Drawing.Color.LightSalmon;
-			this.collectionNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.collectionNameTextBox.Location = new System.Drawing.Point(78, 12);
-			this.collectionNameTextBox.Name = "collectionNameTextBox";
-			this.collectionNameTextBox.ReadOnly = true;
-			this.collectionNameTextBox.Size = new System.Drawing.Size(144, 22);
-			this.collectionNameTextBox.TabIndex = 1;
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(228, 15);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(67, 17);
+			this.label7.TabIndex = 3;
+			this.label7.Text = "Max docs";
 			// 
 			// maxDocsUpDown
 			// 
@@ -402,55 +307,109 @@
             0,
             0});
 			// 
-			// label7
+			// collectionNameTextBox
 			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(228, 15);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(67, 17);
-			this.label7.TabIndex = 3;
-			this.label7.Text = "Max docs";
+			this.collectionNameTextBox.BackColor = System.Drawing.Color.LightSalmon;
+			this.collectionNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.collectionNameTextBox.Location = new System.Drawing.Point(78, 12);
+			this.collectionNameTextBox.Name = "collectionNameTextBox";
+			this.collectionNameTextBox.ReadOnly = true;
+			this.collectionNameTextBox.Size = new System.Drawing.Size(144, 22);
+			this.collectionNameTextBox.TabIndex = 1;
 			// 
-			// panel7
+			// label4
 			// 
-			this.panel7.Controls.Add(this.documentTextBox);
-			this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel7.Location = new System.Drawing.Point(0, 187);
-			this.panel7.Name = "panel7";
-			this.panel7.Size = new System.Drawing.Size(611, 211);
-			this.panel7.TabIndex = 7;
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(3, 15);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(69, 17);
+			this.label4.TabIndex = 0;
+			this.label4.Text = "Collection";
 			// 
-			// documentTextBox
+			// panel4
 			// 
-			this.documentTextBox.BackColor = System.Drawing.Color.White;
-			this.documentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.documentTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.documentTextBox.Location = new System.Drawing.Point(0, 0);
-			this.documentTextBox.Name = "documentTextBox";
-			this.documentTextBox.Size = new System.Drawing.Size(611, 211);
-			this.documentTextBox.TabIndex = 4;
-			this.documentTextBox.Text = "function() { \nreturn db.images.count(); \n}";
+			this.panel4.BackColor = System.Drawing.Color.Transparent;
+			this.panel4.Controls.Add(this.documentCountTextBox);
+			this.panel4.Controls.Add(this.label3);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel4.Location = new System.Drawing.Point(0, 398);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(611, 40);
+			this.panel4.TabIndex = 5;
 			// 
-			// splitter1
+			// documentCountTextBox
 			// 
-			this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.splitter1.Location = new System.Drawing.Point(0, 177);
-			this.splitter1.Name = "splitter1";
-			this.splitter1.Size = new System.Drawing.Size(611, 10);
-			this.splitter1.TabIndex = 8;
-			this.splitter1.TabStop = false;
+			this.documentCountTextBox.Location = new System.Drawing.Point(123, 9);
+			this.documentCountTextBox.Name = "documentCountTextBox";
+			this.documentCountTextBox.ReadOnly = true;
+			this.documentCountTextBox.Size = new System.Drawing.Size(100, 22);
+			this.documentCountTextBox.TabIndex = 1;
 			// 
-			// collectionView
+			// label3
 			// 
-			this.collectionView.BackgroundColor = System.Drawing.Color.White;
-			this.collectionView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.collectionView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.collectionView.Location = new System.Drawing.Point(0, 43);
-			this.collectionView.Name = "collectionView";
-			this.collectionView.RowTemplate.Height = 24;
-			this.collectionView.Size = new System.Drawing.Size(611, 134);
-			this.collectionView.TabIndex = 4;
-			this.collectionView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.collectionView_CellClick);
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(4, 12);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(113, 17);
+			this.label3.TabIndex = 0;
+			this.label3.Text = "Document Count";
+			// 
+			// panel3
+			// 
+			this.panel3.BackColor = System.Drawing.Color.Transparent;
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panel3.Location = new System.Drawing.Point(268, 6);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(10, 438);
+			this.panel3.TabIndex = 7;
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.collectionListBox);
+			this.panel1.Controls.Add(this.panel6);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panel1.Location = new System.Drawing.Point(6, 6);
+			this.panel1.Name = "panel1";
+			this.panel1.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
+			this.panel1.Size = new System.Drawing.Size(262, 438);
+			this.panel1.TabIndex = 5;
+			// 
+			// collectionListBox
+			// 
+			this.collectionListBox.BackColor = System.Drawing.Color.White;
+			this.collectionListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.collectionListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.collectionListBox.FormattingEnabled = true;
+			this.collectionListBox.IntegralHeight = false;
+			this.collectionListBox.ItemHeight = 16;
+			this.collectionListBox.Location = new System.Drawing.Point(8, 8);
+			this.collectionListBox.Name = "collectionListBox";
+			this.collectionListBox.Size = new System.Drawing.Size(254, 390);
+			this.collectionListBox.TabIndex = 2;
+			this.collectionListBox.SelectedIndexChanged += new System.EventHandler(this.collectionListBox_SelectedIndexChanged);
+			// 
+			// panel6
+			// 
+			this.panel6.BackColor = System.Drawing.Color.Transparent;
+			this.panel6.Controls.Add(this.refreshButton);
+			this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel6.Location = new System.Drawing.Point(8, 398);
+			this.panel6.Name = "panel6";
+			this.panel6.Size = new System.Drawing.Size(254, 40);
+			this.panel6.TabIndex = 11;
+			// 
+			// refreshButton
+			// 
+			this.refreshButton.BackColor = System.Drawing.Color.LightSalmon;
+			this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+			this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.refreshButton.Location = new System.Drawing.Point(0, 5);
+			this.refreshButton.Name = "refreshButton";
+			this.refreshButton.Size = new System.Drawing.Size(91, 31);
+			this.refreshButton.TabIndex = 10;
+			this.refreshButton.Text = "Refresh";
+			this.refreshButton.UseVisualStyleBackColor = false;
+			this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
 			// 
 			// queryTabControl
 			// 
@@ -478,10 +437,10 @@
 			// 
 			this.pluginHost.BackColor = System.Drawing.Color.Transparent;
 			this.pluginHost.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pluginHost.Location = new System.Drawing.Point(278, 3);
+			this.pluginHost.Location = new System.Drawing.Point(283, 8);
 			this.pluginHost.Name = "pluginHost";
 			this.pluginHost.Plugin = null;
-			this.pluginHost.Size = new System.Drawing.Size(614, 444);
+			this.pluginHost.Size = new System.Drawing.Size(609, 439);
 			this.pluginHost.TabIndex = 11;
 			// 
 			// ExplorerForm
@@ -492,7 +451,6 @@
 			this.Controls.Add(this.queryTabControl);
 			this.Controls.Add(this.panel8);
 			this.Controls.Add(this.panel9);
-			this.MainMenuStrip = this.mainMenu;
 			this.Name = "ExplorerForm";
 			this.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
 			this.Text = "Mongo Explorer";
@@ -500,19 +458,17 @@
 			this.panel8.ResumeLayout(false);
 			this.panel8.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			this.mainMenu.ResumeLayout(false);
-			this.mainMenu.PerformLayout();
 			this.collectionTabPage.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel6.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
-			this.panel4.ResumeLayout(false);
-			this.panel4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.collectionView)).EndInit();
+			this.panel7.ResumeLayout(false);
 			this.panel5.ResumeLayout(false);
 			this.panel5.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.maxDocsUpDown)).EndInit();
-			this.panel7.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.collectionView)).EndInit();
+			this.panel4.ResumeLayout(false);
+			this.panel4.PerformLayout();
+			this.panel1.ResumeLayout(false);
+			this.panel6.ResumeLayout(false);
 			this.queryTabControl.ResumeLayout(false);
 			this.panel9.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -532,10 +488,6 @@
 		private Plugin.PluginHost pluginHost;
 		private System.Windows.Forms.Panel panel8;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.MenuStrip mainMenu;
-		private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
 		private System.Windows.Forms.TabPage collectionTabPage;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.DataGridView collectionView;

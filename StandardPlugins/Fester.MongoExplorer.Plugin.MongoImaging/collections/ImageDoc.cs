@@ -35,7 +35,7 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging.Collections {
 			[BsonElement("fillColor")]
 			public ColorType FillColor { get; set; }
 			[BsonElement("lineThickness")]
-			public int lineThickness { get; set; }
+			public int LineThickness { get; set; }
 			[BsonElement("filled")]
 			public bool Filled { get; set; }
 			[BsonElement("annotationType")]
@@ -66,14 +66,14 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging.Collections {
 
 		public class Point {
 			[BsonElement("x")]
-			public int X { get; set; }
+			public float X { get; set; }
 			[BsonElement("y")]
-			public int Y { get; set; }
+			public float Y { get; set; }
 
 			public Point() {
 			}
 
-			public Point(int x, int y) {
+			public Point(float x, float y) {
 				X = x;
 				Y = y;
 			}
@@ -88,10 +88,23 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging.Collections {
 			[BsonElement("topLeft")]
 			public Point TopLeft {get; set;}
 			[BsonElement("width")]
-			public int Width {get; set;}
+			public float Width { get; set; }
 			[BsonElement("height")]
-			public int Height {get; set;}
+			public float Height { get; set; }
 
+		}
+
+		/// <summary>
+		/// Al l possible types of annotation
+		/// </summary>
+		public enum ImagingAnnotationTypes {
+			FreeLine,
+			Polygon,
+			Svg,
+			Highlighter,
+			StraightLine,
+			TextAnnotation,
+			Stamp
 		}
 
 

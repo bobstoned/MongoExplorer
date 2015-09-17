@@ -84,6 +84,7 @@
     <Compile Include="dialogs\LoginDialog.Designer.cs">
       <DependentUpon>LoginDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="helper\ApplicationTheme.cs" />
     <Compile Include="helper\Tools.cs" />
     <Compile Include="MongoExplorerExceptionType.cs" />
     <Compile Include="PluginHost.cs">

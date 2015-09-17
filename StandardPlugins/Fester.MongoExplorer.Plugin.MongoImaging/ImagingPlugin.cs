@@ -11,6 +11,7 @@ using Fester.MongoExplorer.Plugin;
 using System.ComponentModel.Composition;
 using IMAGING = Blithe.Common.Imaging;
 using Fester.MongoExplorer.Plugin.MongoImaging.Collections;
+using Fester.MongoExplorer.Plugin.MongoImaging.Repository;
 
 namespace Fester.MongoExplorer.Plugin.MongoImaging {
 
@@ -30,8 +31,11 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 		public MongoImagingPlugin(MongoExplorerSession explorer)
 			: base(explorer) {
 			this.explorer = explorer;
+			repository.Session = explorer;
 			SetIdentity();
 		}
+
+		private ImageDocRepository repository = new ImageDocRepository();
 
 		#endregion
 
@@ -47,52 +51,32 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 			base.SetPluginControl();
 		}
 
-		/// <summary>
-		/// Gets all templates using the async task ("Result" will wait to finish!)
-		/// </summary>
-		public List<ScriptTemplate> GetTemplates() {
-			var templates = this.GetTemplatesAsync().Result;
-			return templates;
-			/*
-			var templateNames = new List<string>();
-			foreach (ScriptTemplate template in templates) {
-				templateNames.Add(template.Name);
-			}
-			return templateNames;
-			 **/
-		}
-
-		/// <summary>
-		/// Gets templates asynchronously (note the "await" keyword)
-		/// "ConfigureAwait(false)" won't continue to use the current thread for 
-		/// susequent processes (causes hang otherwise)
-		/// </summary>
-		/// <returns></returns>
-		private async Task<List<ScriptTemplate>> GetTemplatesAsync() {
-			var collection = explorer.Database.GetCollection<ScriptTemplate>("script_template");
-			var sort = Builders<ScriptTemplate>.Sort.Ascending("Name");
-			var filter = Builders<ScriptTemplate>.Filter.Gte("Name", "");
-			//var projection = Builders<ScriptTemplate>.Projection.Include("ScriptRegions.HighLightRegion").Exclude("_id");
-			return await collection.FindAsync<ScriptTemplate>(f => f.Name != "").Result.ToListAsync();
-		}
-
-		private async void InsertAsync(ScriptTemplate template) {
-			var collection = explorer.Database.GetCollection<ScriptTemplate>("script_template");
-			await collection.InsertOneAsync(template);
-		}
-
-		public void Insert(string name, string description, string regions) {
-			ScriptTemplate template = new ScriptTemplate() {
-				Name = name,
-				Description = description
-			};
-			InsertAsync(template);
-		}
-
 
 		#endregion
 
 		#region Imaging Stuff
+
+		/// <summary>
+		/// Get all images from the database
+		/// </summary>
+		/// <returns></returns>
+		public List<ImageDoc> GetImages() {
+			ImageDocActions imageActions = new ImageDocActions(this.explorer);
+			List<ImageDoc> images = imageActions.GetList();
+			return images;
+		}
+
+		/// <summary>
+		/// Save an image document
+		/// </summary>
+		/// <returns></returns>
+		public void Save(ImageDoc doc) {
+			ImageDocActions imageActions = new ImageDocActions(this.explorer);
+			ReplaceOneResult result = imageActions.Save(doc);
+		}
+
+
+
 
 		#endregion
 

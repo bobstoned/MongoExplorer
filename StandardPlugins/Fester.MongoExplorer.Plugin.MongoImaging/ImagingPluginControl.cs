@@ -36,27 +36,21 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 			
 		}
 
-		private void getTemplatesButton_Click(object sender, EventArgs e) {
-			// get the script templates names from the DB
-			//List<string> templateNames = (this.Plugin as MongoImagingPlugin).GetTemplates();
-			// load into the list box
-			templateListBox.DataSource = (this.Plugin as MongoImagingPlugin).GetTemplates();
-		}
-
 		private void openFile_Click(object sender, EventArgs e) {
 			if (fileDialog.ShowDialog() == DialogResult.OK) {
 				imageEditorFrame.ImageEditor.OriginalImage = Image.FromFile(fileDialog.FileName);
 			}
 		}
 
-		private void saveButton_Click(object sender, EventArgs e) {
-			(this.Plugin as MongoImagingPlugin).Insert(
-				nameTextBox.Text, descriptionTextBox.Text, regionTextBox.Text);
+		private void getImagesButton_Click(object sender, EventArgs e) {
+			List<ImageDoc> images = (this.Plugin as MongoImagingPlugin).GetImages();
+			templateListBox.DataSource = images;
+			annotationsInfoControl.Annotations = images[0].Annotations;
 		}
 
-		private void getImagesButton_Click(object sender, EventArgs e) {
-			ImageDocActions imageActions = new ImageDocActions(this.Plugin.Explorer);
-			var images = imageActions.Get();
+		private void saveButton_Click(object sender, EventArgs e) {
+			List<ImageDoc> images = templateListBox.DataSource as List<ImageDoc>;
+			(this.Plugin as MongoImagingPlugin).Save(images[0]);
 		}
 
 

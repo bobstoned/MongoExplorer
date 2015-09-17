@@ -23,7 +23,7 @@ db.image.insert({
 			},		
 			lineThickness: 1,
 			filled: false,
-			annotationType: "highlight",
+			annotationType: "Highlighter",
 			rect: {
 				topLeft: {x:50, y:50},
 				width: 50,

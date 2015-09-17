@@ -19,10 +19,8 @@ namespace Fester.MongoExplorer.Common {
 		private string serverName;
 		private int port;
 		private MongoClient client;
-		private MongoServer server;
 		private IMongoDatabase database;
 		private string databaseName;
-		private List<string> databaseNames;
 		private List<string> collectionNames;
 		private string selectedCollection;
 

@@ -11,42 +11,63 @@ using Fester.MongoExplorer.Plugin;
 using System.ComponentModel.Composition;
 using IMAGING = Blithe.Common.Imaging;
 using Fester.MongoExplorer.Plugin.MongoImaging.Collections;
+using Fester.MongoExplorer.Plugin.MongoImaging.Repository;
+using Fester.MongoExplorer.Common.Repository;
+
 namespace Fester.MongoExplorer.Plugin.MongoImaging.Collections {
 
-	public class ImageDocActions {
+	/// <summary>
+	/// Action class with CRUD operations for image documents
+	/// </summary>
+	public class ImageDocActions : ICrudServiceBase<ImageDoc, int> {
 
+		private ImageDocRepository repository = new ImageDocRepository();
+
+		/// <summary>
+		/// constructor
+		/// </summary>
+		/// <param name="explorer">the Mongo explorer session provides connection/client and helper functions</param>
 		public ImageDocActions(MongoExplorerSession explorer) {
-			this.explorer = explorer;
+			this.repository.Session = explorer;
 		}
 
-		MongoExplorerSession explorer;
-
-		public MongoExplorerSession Explorer {
-			get { return explorer; }
-			set { explorer = value; }
-		}
+		#region Core CRUD based methods
 
 		/// <summary>
-		/// Gets all templates using the async task ("Result" will wait to finish!)
+		/// Get a single item by its primary key
 		/// </summary>
-		public List<ImageDoc> Get() {
-			var docs = this.GetAsync().Result;
-			return docs;
-		}
-
-		/// <summary>
-		/// Gets templates asynchronously (note the "await" keyword)
-		/// "ConfigureAwait(false)" won't continue to use the current thread for 
-		/// susequent processes (causes hang otherwise)
-		/// </summary>
+		/// <param name="imageId">primary key</param>
 		/// <returns></returns>
-		private async Task<List<ImageDoc>> GetAsync() {
-			var collection = explorer.Database.GetCollection<ImageDoc>("image");
-			var sort = Builders<ImageDoc>.Sort.Ascending("name");
-			var filter = Builders<ImageDoc>.Filter.Gte("name", "");
-			//var projection = Builders<ScriptTemplate>.Projection.Include("ScriptRegions.HighLightRegion").Exclude("_id");
-			return await collection.FindAsync<ImageDoc>(filter).Result.ToListAsync();
+		public ImageDoc Get(int imageId) {
+			throw new NotImplementedException();
 		}
+
+		/// <summary>
+		/// Get a list of items using a simple field filter
+		/// </summary>
+		/// <param name="fieldName">name of the field in the document</param>
+		/// <param name="value">filter value</param>
+		/// <returns></returns>
+		public List<ImageDoc> GetList(string fieldName, string value) {
+			return repository.GetList(fieldName, value);
+		}
+
+		/// <summary>
+		/// Get all image documents
+		/// </summary>
+		public List<ImageDoc> GetList() {
+			return repository.GetList("name", "");
+		}
+
+		/// <summary>
+		/// Save a single item
+		/// </summary>
+		public ReplaceOneResult Save(ImageDoc item) {
+			return repository.Save(item);
+		}
+
+		#endregion
+
 
 	}
 }

@@ -13,6 +13,7 @@ namespace Fester.MongoExplorer.App {
 	public partial class LoginDialog : Form {
 		public LoginDialog() {
 			InitializeComponent();
+			Tools.ApplyStyle("WhiteOut", this, false);
 		}
 
 		private MongoExplorerSession session = new MongoExplorerSession();

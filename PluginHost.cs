@@ -26,14 +26,20 @@ namespace Fester.MongoExplorer.App.Plugin {
 					return;
 				}
 				if (plugin != null) {
-					this.Controls.Remove(plugin.PluginControl);
+					this.pluginPanel.Controls.Remove(plugin.PluginControl);
 				}
 				plugin = value;
 				if (plugin != null) {
 					plugin.PluginControl.Dock = DockStyle.Fill;
-					this.Controls.Add(plugin.PluginControl);
+					this.pluginPanel.Controls.Add(plugin.PluginControl);
+					pluginNameLabel.Text = plugin.PluginName;
+					pluginDescriptionLabel.Text = plugin.PluginDescription;
 				}
 			}
+		}
+
+		private void pluginPanel_Paint(object sender, PaintEventArgs e) {
+
 		}
 
 

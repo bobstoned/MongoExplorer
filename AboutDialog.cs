@@ -12,7 +12,7 @@ namespace Fester.MongoExplorer.App {
 	public partial class AboutDialog : Form {
 		public AboutDialog() {
 			InitializeComponent();
-			Tools.ApplyStyle(this, Color.DarkGray, Color.Gray, Color.LightSalmon, Color.DarkRed, Color.White);
+			Tools.ApplyStyle("WhiteOut", this, false);
 		}
 
 		public static void ShowAboutDialog() {

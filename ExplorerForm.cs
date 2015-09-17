@@ -14,11 +14,13 @@ using Fester.MongoExplorer.Common;
 using Fester.MongoExplorer.Plugin;
 
 namespace Fester.MongoExplorer.App {
+
 	public partial class ExplorerForm : Form {
+
 		public ExplorerForm() {
 			InitializeComponent();
 			CreatePlugins();
-			Tools.ApplyStyle(this, Color.Gray, Color.DarkGray, Color.LightSalmon, Color.DarkRed, Color.White);
+			Tools.ApplyStyle("WhiteOut", this, false);
 		}
 
 		List<Control> buttons = new List<Control>();
@@ -73,7 +75,9 @@ namespace Fester.MongoExplorer.App {
 		}
 
 		private void collectionView_CellClick(object sender, DataGridViewCellEventArgs e) {
-			documentTextBox.Text = GeneralUtilities.FormatJson((string)collectionView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+			if (e.RowIndex > -1) {
+				documentTextBox.Text = GeneralUtilities.FormatJson((string)collectionView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+			}
 		}
 
 		List<IMongoPlugin> plugins = new List<IMongoPlugin>();
@@ -92,8 +96,7 @@ namespace Fester.MongoExplorer.App {
 				pluginHost.Plugin = plugins.FirstOrDefault(p => p.PluginName == pluginName);
 			}
 			pluginHost.Plugin.Explorer = this.explorer;
-			Tools.ApplyStyle(pluginHost, Color.Gray, Color.DarkGray, Color.LightSalmon, Color.DarkRed, Color.White);
-			Tools.SetPanelStyling(pluginHost, Color.DarkGray);
+			Tools.ApplyStyle("WhiteOut", pluginHost, true);
 		}
 
 		private void closeButton_Click(object sender, EventArgs e) {
@@ -105,36 +108,6 @@ namespace Fester.MongoExplorer.App {
 		}
 
 		private void queryTabControl_DrawItem(object sender, DrawItemEventArgs e) {
-			ChangeTabColor(e);
-		}
-
-		private void ChangeTabColor(DrawItemEventArgs e) {
-			Font TabFont;
-			Brush BackBrush = new SolidBrush(Color.Green); //Set background color
-			Brush ForeBrush = new SolidBrush(Color.Yellow);//Set foreground color
-			if (e.Index == this.queryTabControl.SelectedIndex) {
-				TabFont = new Font(e.Font, FontStyle.Italic | FontStyle.Bold);
-			}
-			else {
-				TabFont = e.Font;
-			}
-			string TabName = this.queryTabControl.TabPages[e.Index].Text;
-			StringFormat sf = new StringFormat();
-			sf.Alignment = StringAlignment.Center;
-			e.Graphics.FillRectangle(BackBrush, e.Bounds);
-			Rectangle r = e.Bounds;
-			r = new Rectangle(r.X, r.Y + 3, r.Width, r.Height - 3);
-			e.Graphics.DrawString(TabName, TabFont, ForeBrush, r, sf);
-			//Dispose objects
-			sf.Dispose();
-			if (e.Index == this.queryTabControl.SelectedIndex) {
-				TabFont.Dispose();
-				BackBrush.Dispose();
-			}
-			else {
-				BackBrush.Dispose();
-				ForeBrush.Dispose();
-			}
 		}
 
 	}
