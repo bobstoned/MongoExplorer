@@ -9,6 +9,8 @@ using MongoDB.Driver;
 using Fester.MongoExplorer.Common;
 using Fester.MongoExplorer.Plugin;
 using System.ComponentModel.Composition;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace Fester.MongoExplorer.Plugin.MongoUniversity {
 
@@ -63,6 +65,79 @@ namespace Fester.MongoExplorer.Plugin.MongoUniversity {
 			var sort = Builders<BsonDocument>.Sort.Descending("scores.score");
 			var filter = Builders<BsonDocument>.Filter.Gte("scores.score", score);
 			return await collection.Find(filter).Sort(sort).ToListAsync().ConfigureAwait(false);
+		}
+
+		/// <summary>
+		/// Process the images to identify orphaned items
+		/// </summary>
+		/// <returns></returns>
+		public async Task<int> GetImages(CancellationToken cancellationToken, JobCounters counters) {
+			var task = GetImagesAsync().ConfigureAwait(false);
+			List<BsonDocument> images = await task;
+			List<int> orphanedImageIds = new List<int>();
+			foreach (BsonDocument doc in images) {
+				int imageId = doc["_id"].ToInt32();
+				bool hasAlbums = GetAlbums(imageId);
+				if (!hasAlbums) {
+					if (doc["tags"].AsBsonArray.Contains("kittens")) {
+						counters.Kittens++;
+					}
+					counters.Orphaned++;
+					orphanedImageIds.Add(imageId);
+				}
+				counters.Processed++;
+				cancellationToken.ThrowIfCancellationRequested();
+			}
+			return images.Count();
+		}
+
+		public class JobCounters {
+
+			private int orphaned = 0;
+			private int processed = 0;
+			private int kittens = 0;
+
+
+			public int Processed {
+				get { return processed; }
+				set { processed = value; }
+			}
+
+			public int Orphaned {
+				get { return orphaned; }
+				set { orphaned = value; }
+			}
+
+			public int Kittens {
+				get { return kittens; }
+				set { kittens = value; }
+			}
+
+		}
+
+		public async Task<List<BsonDocument>> GetImagesAsync() {
+			var collection = explorer.Database.GetCollection<BsonDocument>("images");
+			var sort = Builders<BsonDocument>.Sort.Descending("_id");
+			var filter = Builders<BsonDocument>.Filter.Gte("_id", 0);
+			return await collection.Find(filter).Sort(sort).ToListAsync().ConfigureAwait(false);
+		}
+
+		public async Task<List<BsonDocument>> GetImagesAsync2() {
+			var collection = explorer.Database.GetCollection<BsonDocument>("images");
+			var sort = Builders<BsonDocument>.Sort.Descending("_id");
+			var filter = Builders<BsonDocument>.Filter.Gte("_id", 0);
+			return await collection.Find(filter).Sort(sort).ToListAsync().ConfigureAwait(false);
+		}
+
+		public bool GetAlbums(int imageId) {
+			return GetAlbumsAsync(imageId).Result > 0;
+		}
+
+		public async Task<long> GetAlbumsAsync(int imageId) {
+			var collection = explorer.Database.GetCollection<BsonDocument>("albums");
+			var sort = Builders<BsonDocument>.Sort.Ascending("_id");
+			var filter = Builders<BsonDocument>.Filter.AnyEq("images", imageId);
+			return await collection.CountAsync(filter).ConfigureAwait(false);
 		}
 
 
