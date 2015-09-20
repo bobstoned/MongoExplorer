@@ -16,6 +16,11 @@ namespace Fester.MongoExplorer.Common {
 
 		}
 
+		/// <summary>
+		/// Event notification of connection to a database
+		/// </summary>
+		public event EventHandler Connected; 
+
 		private string serverName;
 		private int port;
 		private MongoClient client;
@@ -35,7 +40,6 @@ namespace Fester.MongoExplorer.Common {
 				if (!string.IsNullOrEmpty(value) && serverName != value) {
 					serverName = value;
 					try {
-						//server = GetServer(serverName);
 						client = GetClient(serverName);
 					}
 					catch (Exception ex) {
@@ -70,7 +74,14 @@ namespace Fester.MongoExplorer.Common {
 					foreach (BsonDocument doc in colls) {
 						collectionNames.Add(doc["name"].AsString);
 					}
+					RaiseConnected();
 				}
+			}
+		}
+
+		private void RaiseConnected() {
+			if (Connected != null) {
+				Connected(this, EventArgs.Empty);
 			}
 		}
 
@@ -169,35 +180,6 @@ namespace Fester.MongoExplorer.Common {
 		private async Task<List<BsonDocument>> GetDatabaseNamesAsync() {
 			var dbs = await client.ListDatabasesAsync().Result.ToListAsync();
 			return dbs;
-		}
-
-		/// <summary>
-		/// Translate the BSONDocument array into a data table
-		/// suitable as a data source
-		/// </summary>
-		/// <param name="cursor"></param>
-		/// <returns></returns>
-		public DataTable GetDataTableFromMongoCursor(BsonDocument cursor) {
-			return new DataTable();
-			/*
-			if (cursor != null && cursor.Count() > 0) {
-				DataTable dt = new DataTable(cursor.ToString());
-				foreach (BsonDocument doc in cursor) {
-					foreach (BsonElement elm in doc.Elements) {
-						if (!dt.Columns.Contains(elm.Name)) {
-							dt.Columns.Add(new DataColumn(elm.Name));
-						}
-					}
-					DataRow dr = dt.NewRow();
-					foreach (BsonElement elm in doc.Elements) {
-						dr[elm.Name] = elm.Value;
-					}
-					dt.Rows.Add(dr);
-				}
-				return dt;
-			}
-			return null;
-			 */
 		}
 
 		/// <summary>

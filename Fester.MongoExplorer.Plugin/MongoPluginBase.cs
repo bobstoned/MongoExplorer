@@ -23,7 +23,21 @@ namespace Fester.MongoExplorer.Plugin {
 
 		public MongoExplorerSession Explorer {
 			get { return explorer; }
-			set { explorer = value; }
+			set { 
+				explorer = value;
+				explorer.Connected += explorer_Connected;
+				if (!string.IsNullOrEmpty(explorer.DatabaseName)) {
+					Connected();
+				}
+			}
+		}
+
+		void explorer_Connected(object sender, EventArgs e) {
+			Connected();
+		}
+
+		protected virtual void Connected() {
+			pluginControl.Connected();
 		}
 
 		protected PluginControl pluginControl;

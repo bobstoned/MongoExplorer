@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MongoExplorer.Plugin.LiberatoDatabaseUpgrade")]
+[assembly: AssemblyTitle("Fester.MongoExplorer.Plugin.Collection")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MongoExplorer.Plugin.LiberatoDatabaseUpgrade")]
+[assembly: AssemblyProduct("Fester.MongoExplorer.Plugin.Collection")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ec86ceb4-6ec8-45f9-9421-0277a1ea3124")]
+[assembly: Guid("0f57f22c-a63c-4678-adb3-c06c01ca1429")]
 
 // Version information for an assembly consists of the following four values:
 //

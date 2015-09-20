@@ -21,5 +21,12 @@ namespace Fester.MongoExplorer.Plugin {
 			set { plugin = value; }
 		}
 
+		/// <summary>
+		/// override to handle database connection
+		/// </summary>
+		public virtual void Connected() {
+
+		}
+
 	}
 }
