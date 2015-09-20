@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Common", "Fester.MongoExplorer.Common\Fester.MongoExplorer.Common.csproj", "{5D65AB40-7596-46F0-BA7A-2B83055F08E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin.LiberatoDatabaseUpgrade", "StandardPlugins\Fester.MongoExplorer.Plugin.LiberatoDatabaseUpgrade\Fester.MongoExplorer.Plugin.LiberatoDatabaseUpgrade.csproj", "{E57F54A4-AE0D-49C1-8B94-219525D09F25}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin.MongoImaging", "StandardPlugins\Fester.MongoExplorer.Plugin.MongoImaging\Fester.MongoExplorer.Plugin.MongoImaging.csproj", "{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blithe.Client.Controls.ImageEditor", "..\ThirdParty\Blithe.Client.Controls.ImageEditor\Blithe.Client.Controls.ImageEditor.csproj", "{07C9B1C8-C47D-4CF6-9240-33CF4FD9C5A2}"
@@ -59,12 +57,6 @@ Global
 		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D65AB40-7596-46F0-BA7A-2B83055F08E6}.Release|x86.ActiveCfg = Release|Any CPU
-		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E57F54A4-AE0D-49C1-8B94-219525D09F25}.Release|x86.ActiveCfg = Release|Any CPU
 		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F58E3C48-FB47-408B-9B3F-9A9BCF9546B3}.Debug|x86.ActiveCfg = Debug|Any CPU
