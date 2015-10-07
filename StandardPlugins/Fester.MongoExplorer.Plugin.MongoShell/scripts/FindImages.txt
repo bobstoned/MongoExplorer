@@ -1,0 +1,4 @@
+db.image.find(
+  { width : {$gte: 200} },
+  {name: true, size: true, width: true, height: true}
+).limit(5).sort({name: 1})
