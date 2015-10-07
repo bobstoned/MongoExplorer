@@ -117,7 +117,7 @@
 			this.documentTextBox.Name = "documentTextBox";
 			this.documentTextBox.Size = new System.Drawing.Size(441, 211);
 			this.documentTextBox.TabIndex = 4;
-			this.documentTextBox.Text = "function() { \nreturn db.images.count(); \n}";
+			this.documentTextBox.Text = "";
 			// 
 			// panel5
 			// 

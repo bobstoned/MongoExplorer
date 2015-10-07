@@ -7,8 +7,8 @@
     <ProjectGuid>{D81BC57E-96CF-4AB4-8B16-8E96FBAAB088}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fester.MongoExplorer.Plugin.MongoShell</RootNamespace>
-    <AssemblyName>Fester.MongoExplorer.Plugin.MongoShell</AssemblyName>
+    <RootNamespace>Fester.MongoExplorer.Plugin.Collection</RootNamespace>
+    <AssemblyName>Fester.MongoExplorer.Plugin.Collection</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

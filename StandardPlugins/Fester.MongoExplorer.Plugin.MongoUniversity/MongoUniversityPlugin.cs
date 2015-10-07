@@ -143,3 +143,4 @@ namespace Fester.MongoExplorer.Plugin.MongoUniversity {
 
 	}
 }
+

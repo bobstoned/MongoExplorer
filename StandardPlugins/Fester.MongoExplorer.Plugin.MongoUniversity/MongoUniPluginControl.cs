@@ -81,7 +81,5 @@ namespace Fester.MongoExplorer.Plugin.MongoUniversity {
 			source.Cancel();
 		}
 
-
-
 	}
 }

@@ -34,9 +34,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dependencies\BitMiracle.LibTiff.NET.dll</HintPath>
     </Reference>
-    <Reference Include="Blithe.Common.Media">
-      <HintPath>B:\Blithe.Common.Media.dll</HintPath>
-    </Reference>
     <Reference Include="MongoDB.Bson, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
@@ -66,15 +63,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnnotationsInfoControl.cs">
+    <Compile Include="AddImageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddImageDialog.Designer.cs">
+      <DependentUpon>AddImageDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AnnotationsInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AnnotationsInfoControl.Designer.cs">
+    <Compile Include="Controls\AnnotationsInfoControl.Designer.cs">
       <DependentUpon>AnnotationsInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="collections\ImageDoc.cs" />
     <Compile Include="collections\ImageDocActions.cs" />
     <Compile Include="collections\ScriptTemplate.cs" />
+    <Compile Include="Controls\ImageBrowserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageBrowserControl.Designer.cs">
+      <DependentUpon>ImageBrowserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RectControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +96,15 @@
     <Compile Include="Controls\RGBColorControl.Designer.cs">
       <DependentUpon>RGBColorControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGenerator\ImageDataGeneration.cs" />
+    <Compile Include="DataGenerator\ImageGenerationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGenerator\ImageGenerationDialog.designer.cs">
+      <DependentUpon>ImageGenerationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGenerator\ImageProcessingActions.cs" />
+    <Compile Include="DataGenerator\ImageProcessingOptions.cs" />
     <Compile Include="ImagingPluginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,14 +123,23 @@
     <Compile Include="Translation\TranslateAnnotation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AnnotationsInfoControl.resx">
+    <EmbeddedResource Include="AddImageDialog.resx">
+      <DependentUpon>AddImageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AnnotationsInfoControl.resx">
       <DependentUpon>AnnotationsInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ImageBrowserControl.resx">
+      <DependentUpon>ImageBrowserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RectControl.resx">
       <DependentUpon>RectControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RGBColorControl.resx">
       <DependentUpon>RGBColorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGenerator\ImageGenerationDialog.resx">
+      <DependentUpon>ImageGenerationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImagingPluginControl.resx">
       <DependentUpon>ImagingPluginControl.cs</DependentUpon>
@@ -131,9 +158,17 @@
       <Project>{f0c52432-1d68-4fd4-9d3c-4ef63f0cf2d7}</Project>
       <Name>Blithe.Common.Imaging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\ThirdParty\Blithe.Common.Media\Blithe.Common.Media.csproj">
+      <Project>{dcb69566-998e-47e1-89b2-26d2865e2600}</Project>
+      <Name>Blithe.Common.Media</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\ThirdParty\FlatTabs\FlatTabControl\FlatTabControl.csproj">
       <Project>{96002CA1-D295-4ED5-9B08-92346C1BFA18}</Project>
       <Name>FlatTabControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Fester.Common\Fester.Common.csproj">
+      <Project>{3c7a3dfe-a030-40a4-b2cc-e865fd50c7d5}</Project>
+      <Name>Fester.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Fester.MongoExplorer.Common\Fester.MongoExplorer.Common.csproj">
       <Project>{5d65ab40-7596-46f0-ba7a-2b83055f08e6}</Project>
@@ -149,10 +184,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dependencies\BitMiracle.LibTiff.NET.dll" />
+    <Content Include="dependencies\Blithe.Client.Controls.ImageEditor.dll" />
+    <Content Include="dependencies\Blithe.Common.Imaging.dll" />
+    <Content Include="dependencies\Blithe.Common.Media.dll" />
     <Content Include="dependencies\SciLexer.dll" />
     <Content Include="dependencies\ScintillaNet.dll" />
     <Content Include="dependencies\Svg.dll" />
     <Content Include="images\AnnotationBackground.png" />
+    <Content Include="scripts\ImageIndex.js" />
     <Content Include="scripts\imageInts.js" />
     <Content Include="scripts\imageSimple.js" />
     <Content Include="scripts\image.js" />
@@ -161,12 +200,17 @@
     <None Include="Properties\DataSources\Fester.MongoExplorer.Plugin.MongoImaging.Collections.ImageDoc+BoundingRect.datasource" />
     <None Include="Properties\DataSources\Fester.MongoExplorer.Plugin.MongoImaging.Collections.ImageDoc+ColorType.datasource" />
     <None Include="Properties\DataSources\Fester.MongoExplorer.Plugin.MongoImaging.Collections.ImageDoc+Point.datasource" />
+    <None Include="Properties\DataSources\Fester.MongoExplorer.Plugin.MongoImaging.Collections.ImageDoc.datasource" />
     <None Include="Resources\IMG_1053.JPG" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy $(TargetPath) $(ProjectDir)\..\..\bin\debug\plugins
-copy $(ProjectDir)\dependencies $(ProjectDir)\..\..\bin\debug\plugins</PostBuildEvent>
+copy $(ProjectDir)\bin\Debug\Blithe.Client.Controls.ImageEditor.dll $(ProjectDir)\..\..\bin\debug\plugins
+copy $(ProjectDir)\bin\Debug\Blithe.Common.Imaging.dll $(ProjectDir)\..\..\bin\debug\plugins
+copy $(ProjectDir)\bin\Debug\Blithe.Common.Media.dll $(ProjectDir)\..\..\bin\debug\plugins
+copy $(ProjectDir)\bin\Debug\Fester.Common.dll $(ProjectDir)\..\..\bin\debug\plugins</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

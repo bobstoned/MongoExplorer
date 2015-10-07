@@ -14,43 +14,44 @@ using Fester.MongoExplorer.Common;
 using IMAGE_EDIT = Blithe.Client.Controls.ImageEditor;
 using IMAGING = Blithe.Common.Imaging;
 using Fester.MongoExplorer.Plugin.MongoImaging.Collections;
+using Blithe.Common.Media;
 
 namespace Fester.MongoExplorer.Plugin.MongoImaging {
 	public partial class ImagingPluginControl : PluginControl {
 
 		public ImagingPluginControl() {
 			InitializeComponent();
-			CreateEditor();
 		}
 
-		private void CreateEditor() {
-			IMAGING.AnnotationList list = new IMAGING.AnnotationList();
-			IMAGE_EDIT.ImageEditorFrame editor = new IMAGE_EDIT.ImageEditorFrame();
-			Image image = Resources.Emmy;
-			imageEditorFrame.ImageEditor.OriginalImage = image;
-			// Create this or the drawing doesn't work !
-			imageEditorFrame.ImageEditor.Changes = new IMAGING.AnnotationList();
-			//editor.ImageEditor.OriginalImage = Image.FromFile(@"e:\img_9644.jpg");
-			//imageEditorPanel.Controls.Add(editor);
-			//editor.Dock = DockStyle.Fill;
-			
-		}
-
-		private void openFile_Click(object sender, EventArgs e) {
-			if (fileDialog.ShowDialog() == DialogResult.OK) {
-				imageEditorFrame.ImageEditor.OriginalImage = Image.FromFile(fileDialog.FileName);
-			}
-		}
-
-		private void getImagesButton_Click(object sender, EventArgs e) {
-			List<ImageDoc> images = (this.Plugin as MongoImagingPlugin).GetImages();
-			templateListBox.DataSource = images;
-			annotationsInfoControl.Annotations = images[0].Annotations;
+		private async void getImagesButton_Click(object sender, EventArgs e) {
+			ImageDoc.ImageFilter filter = new ImageDoc.ImageFilter() {
+				Name = nameFilterTextBox.Text,
+				Height = (int)heightUpDown.Value,
+				Width = (int)widthUpDown.Value,
+				Size = (int)sizeUpDown.Value,
+			};
+			imageBrowserControl.Images = await (this.Plugin as MongoImagingPlugin).GetImagesAsync(filter);
 		}
 
 		private void saveButton_Click(object sender, EventArgs e) {
-			List<ImageDoc> images = templateListBox.DataSource as List<ImageDoc>;
-			(this.Plugin as MongoImagingPlugin).Save(images[0]);
+			imageBrowserControl.CommitChanges();
+			// Save each image document
+			foreach (ImageDoc doc in imageBrowserControl.Images) {
+				(this.Plugin as MongoImagingPlugin).Save(doc);
+			}
+		}
+
+		private void addImageButton_Click(object sender, EventArgs e) {
+			ImageDoc imageDoc = AddImageDialog.OpenImage();
+			imageBrowserControl.AddImage(imageDoc);
+		}
+
+		private void generateButton_Click(object sender, EventArgs e) {
+			using (ImageGenerationDialog dialog = new ImageGenerationDialog()) {
+				dialog.Actions = new ImageDocActions(this.Plugin.Explorer);
+				dialog.ShowDialog(this);
+				dialog.Close();
+			}
 		}
 
 

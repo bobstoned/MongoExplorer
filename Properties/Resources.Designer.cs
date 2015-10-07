@@ -63,6 +63,36 @@ namespace Fester.MongoExplorer.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_red_horns {
+            get {
+                object obj = ResourceManager.GetObject("logo red horns", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_red_horns_large {
+            get {
+                object obj = ResourceManager.GetObject("logo red horns large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_red_horns1 {
+            get {
+                object obj = ResourceManager.GetObject("logo red horns1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mongo_explorer_logo {
             get {
                 object obj = ResourceManager.GetObject("mongo explorer logo", resourceCulture);

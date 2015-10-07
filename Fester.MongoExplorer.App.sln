@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatTabControl", "..\ThirdP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.MongoExplorer.Plugin.Collection", "StandardPlugins\Fester.MongoExplorer.Plugin.Collection\Fester.MongoExplorer.Plugin.Collection.csproj", "{D81BC57E-96CF-4AB4-8B16-8E96FBAAB088}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fester.Common", "Fester.Common\Fester.Common.csproj", "{3C7A3DFE-A030-40A4-B2CC-E865FD50C7D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,12 @@ Global
 		{D81BC57E-96CF-4AB4-8B16-8E96FBAAB088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D81BC57E-96CF-4AB4-8B16-8E96FBAAB088}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D81BC57E-96CF-4AB4-8B16-8E96FBAAB088}.Release|x86.ActiveCfg = Release|Any CPU
+		{3C7A3DFE-A030-40A4-B2CC-E865FD50C7D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7A3DFE-A030-40A4-B2CC-E865FD50C7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7A3DFE-A030-40A4-B2CC-E865FD50C7D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3C7A3DFE-A030-40A4-B2CC-E865FD50C7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7A3DFE-A030-40A4-B2CC-E865FD50C7D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C7A3DFE-A030-40A4-B2CC-E865FD50C7D5}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

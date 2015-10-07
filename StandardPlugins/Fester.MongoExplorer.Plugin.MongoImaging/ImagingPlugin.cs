@@ -67,12 +67,33 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 		}
 
 		/// <summary>
+		/// Get all images from the database
+		/// </summary>
+		/// <returns></returns>
+		public async Task<List<ImageDoc>> GetImagesAsync(string name) {
+			ImageDocActions imageActions = new ImageDocActions(this.explorer);
+			return await imageActions.GetListAsync("name", name).ConfigureAwait(false);
+		}
+
+		/// <summary>
+		/// Get all images from the database
+		/// </summary>
+		/// <returns></returns>
+		public async Task<List<ImageDoc>> GetImagesAsync(ImageDoc.ImageFilter filter) {
+			ImageDocActions imageActions = new ImageDocActions(this.explorer);
+			return await imageActions.GetListAsync(filter).ConfigureAwait(false);
+		}
+
+		/// <summary>
 		/// Save an image document
 		/// </summary>
 		/// <returns></returns>
 		public void Save(ImageDoc doc) {
 			ImageDocActions imageActions = new ImageDocActions(this.explorer);
 			ReplaceOneResult result = imageActions.Save(doc);
+			if (result.UpsertedId != null) {
+				doc.Id = result.UpsertedId.AsObjectId;
+			}
 		}
 
 

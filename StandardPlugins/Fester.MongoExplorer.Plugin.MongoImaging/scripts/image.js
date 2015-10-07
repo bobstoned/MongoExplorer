@@ -1,5 +1,4 @@
 db.image.insert({
-	_id: 10,
 	name: "Emmy",
 	desc: "Emmy on holiday",
     type: "jpeg",
@@ -43,9 +42,12 @@ db.image.insert({
 					r: 0,
 					g: 0,
 					b: 0					
-				}
+				},
+				units: 'mm',
+                style: 'bold'
 			},
-			hasLine: true
+			hasLine: true,
+		    SvgImageName: 'cloud'
 		}
 	]
 })

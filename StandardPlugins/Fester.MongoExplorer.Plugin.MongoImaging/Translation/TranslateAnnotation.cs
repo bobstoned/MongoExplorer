@@ -45,12 +45,11 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 			annotation.LineThickness = imagingAnnotation.LineThickness;
 			//annotation.Outline = imagingAnnotation.Outline;
 			annotation.Points = PointsToSimpleType(imagingAnnotation.Points);
-			/*
-			annotation.Rect = imagingAnnotation.Rect;
+			annotation.Rect = RectToSimpleType(imagingAnnotation.Rect);
 			if (imagingAnnotation is TextAnnotation) {
 				annotation.Text = (imagingAnnotation as TextAnnotation).Text;
-				annotation.TextColor = (imagingAnnotation as TextAnnotation).TextColor;
-				annotation.TextFont = (imagingAnnotation as TextAnnotation).TextFont;
+				annotation.TextColor = ColorToSimpleType((imagingAnnotation as TextAnnotation).TextColor);
+				annotation.Font = new ImageDoc.SimpleFont((imagingAnnotation as TextAnnotation).TextFont);
 			}
 			
 			if (imagingAnnotation is SvgAnnotation) {
@@ -59,7 +58,6 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 			if (imagingAnnotation is PolygonAnnotation) {
 				annotation.SvgImageName = (imagingAnnotation as PolygonAnnotation).ShapeName;
 			}
-			*/
 			return annotation;
 		}
 
@@ -91,6 +89,10 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 					imagingAnnotation = new PolygonAnnotation(SimpleTypeToColor(annotation.LineColor), annotation.LineThickness, scale, colourFormat, controlOffset, imageOffset);
 				}
 					break;
+				case ImageDoc.ImagingAnnotationTypes.Stamp: {
+						imagingAnnotation = new StampAnnotation(annotation.LineThickness, scale, colourFormat, controlOffset, imageOffset);
+					}
+					break;
 				case ImageDoc.ImagingAnnotationTypes.StraightLine: {
 					imagingAnnotation = new StraightLineAnnotation(SimpleTypeToColor(annotation.LineColor), annotation.LineThickness, scale, colourFormat, controlOffset, imageOffset);
 					}
@@ -105,12 +107,12 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 						// Top left of the text
 					Point topLeft = new Point((int)annotation.Rect.TopLeft.X, (int)annotation.Rect.TopLeft.Y);
 						imagingAnnotation = new SvgAnnotation(topLeft, controlOffset, imageOffset, scale, colourFormat);
-						//(imagingAnnotation as SvgAnnotation).ImageName = annotation.SvgImageName;
+						(imagingAnnotation as SvgAnnotation).ImageName = annotation.SvgImageName;
 					}
 					break;
 			}
 			if ((imagingAnnotation is PolygonAnnotation)) {
-				//(imagingAnnotation as PolygonAnnotation).ShapeName = annotation.SvgImageName;
+				(imagingAnnotation as PolygonAnnotation).ShapeName = annotation.SvgImageName;
 				foreach (ImageDoc.Point point in annotation.Points) {
 					Point intPoint = new Point((int)point.X, (int)point.Y);
 					(imagingAnnotation as PolygonAnnotation).AddPoint(intPoint);
@@ -118,13 +120,17 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 				// This forces the initialisation of some required objects
 				(imagingAnnotation as PolygonAnnotation).EndDrawing();
 			}
-			/*
+			if ((imagingAnnotation is StampAnnotation)) {
+				foreach (ImageDoc.Point point in annotation.Points) {
+					Point intPoint = new Point((int)point.X, (int)point.Y);
+					(imagingAnnotation as StampAnnotation).Points.Add(intPoint);
+				}
+			}
 			if ((imagingAnnotation is TextAnnotation)) {
 				(imagingAnnotation as TextAnnotation).Text = annotation.Text;
-				(imagingAnnotation as TextAnnotation).TextFont = annotation.TextFont;
-				(imagingAnnotation as TextAnnotation).TextColor = annotation.TextColor;
+				(imagingAnnotation as TextAnnotation).TextFont = annotation.Font.ToFont();
+				(imagingAnnotation as TextAnnotation).TextColor = SimpleTypeToColor(annotation.TextColor);
 			}
-			 */
 			imagingAnnotation.Rect = SimpleTypeToRect(annotation.Rect);
 			imagingAnnotation.Filled = true;
 			imagingAnnotation.FillColor = SimpleTypeToColor(annotation.FillColor);
@@ -138,6 +144,7 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 			if (imagingAnnotation is StraightLineAnnotation) return ImageDoc.ImagingAnnotationTypes.StraightLine;
 			if (imagingAnnotation is SvgAnnotation) return ImageDoc.ImagingAnnotationTypes.Svg;
 			if (imagingAnnotation is TextAnnotation) return ImageDoc.ImagingAnnotationTypes.TextAnnotation;
+			if (imagingAnnotation is StampAnnotation) return ImageDoc.ImagingAnnotationTypes.Stamp;
 			if (imagingAnnotation is PolygonAnnotation) return ImageDoc.ImagingAnnotationTypes.Polygon;
 			if (imagingAnnotation is PolygonAnnotation && imagingAnnotation.FillOpacity == 128)
 				return ImageDoc.ImagingAnnotationTypes.Highlighter;
@@ -159,6 +166,14 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 			return simplePoint;
 		}
 
+		private static ImageDoc.BoundingRect RectToSimpleType(RectangleF rect) {
+			ImageDoc.BoundingRect simpleRect = new ImageDoc.BoundingRect();
+			simpleRect.TopLeft = PointToSimpleType(new PointF(rect.X, rect.Y));
+			simpleRect.Height = rect.Height;
+			simpleRect.Width = rect.Width;
+			return simpleRect;
+		}
+
 		private static Color SimpleTypeToColor(ImageDoc.ColorType colorType) {
 			return Color.FromArgb(colorType.R, colorType.G, colorType.B);
 		}
@@ -174,6 +189,7 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging {
 			);
 			return rect;
 		}
+
 
 		#endregion
 

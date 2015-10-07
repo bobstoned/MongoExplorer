@@ -53,6 +53,26 @@ namespace Fester.MongoExplorer.Plugin.MongoImaging.Collections {
 		}
 
 		/// <summary>
+		/// Get a list of items using a simple field filter
+		/// </summary>
+		/// <param name="fieldName">name of the field in the document</param>
+		/// <param name="value">filter value</param>
+		/// <returns></returns>
+		public async Task<List<ImageDoc>> GetListAsync(string fieldName, string value) {
+			return await repository.GetListAsync(fieldName, value).ConfigureAwait(false);
+		}
+
+		/// <summary>
+		/// Get a list of items using an image filter
+		/// </summary>
+		/// <param name="fieldName">name of the field in the document</param>
+		/// <param name="value">filter value</param>
+		/// <returns></returns>
+		public async Task<List<ImageDoc>> GetListAsync(ImageDoc.ImageFilter filter) {
+			return await repository.GetListAsync(filter).ConfigureAwait(false);
+		}
+
+		/// <summary>
 		/// Get all image documents
 		/// </summary>
 		public List<ImageDoc> GetList() {

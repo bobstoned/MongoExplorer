@@ -17,7 +17,8 @@ namespace Fester.MongoExplorer.Plugin.MongoShell {
 	public partial class MongoShellPluginControl : PluginControl {
 
 		public MongoShellPluginControl() {
-			InitializeComponent(); 
+			InitializeComponent();
+			scriptBindingSource.DataSource = MongoScriptFile.Scripts;
 		}
 
 		private MongoShellPlugin GetPlugin() {
@@ -26,13 +27,25 @@ namespace Fester.MongoExplorer.Plugin.MongoShell {
 
 		private void executeButton_Click(object sender, EventArgs e) {
 			try {
-				var result = GetPlugin().Explorer.Server.GetDatabase(GetPlugin().Explorer.DatabaseName).Eval(queryTextBox.Text);
+				string execScript = Current.GetExecutableScript();
+				//queryTextBox.Text = execScript;
+				var result = GetPlugin().Explorer.Server.GetDatabase(GetPlugin().Explorer.DatabaseName).Eval(execScript);
 				string jsonPretty = result.ToJson(new JsonWriterSettings { Indent = true });
 				commandResultsText.Text = jsonPretty;
 			}
 			catch (Exception ex) {
 				MessageBox.Show("Could not execute shell command", "Shell Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+
+		MongoScriptFile Current {
+			get { 
+				return scriptBindingSource.Current as MongoScriptFile; 
+			}
+		}
+
+		private void scriptListBox_SelectedIndexChanged(object sender, EventArgs e) {
+			//queryTextBox.Text = Current.Content;
 		}
 
 
