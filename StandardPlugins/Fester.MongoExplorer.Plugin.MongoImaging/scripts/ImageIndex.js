@@ -1,0 +1,1 @@
+﻿db.image.createIndex({ name: "text" });
